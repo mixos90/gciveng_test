@@ -1,0 +1,106 @@
+/* General Reset and Navbar */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background-color: #0d3f79;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1; /* Keep the navbar above the sliding menu */
+  background: linear-gradient(45deg, #2f4e72, #2568b4); /* Replace with desired colors */
+
+}
+
+/* Logo styling */
+.logo h1 {
+  color: white;
+  font-size: 30px;
+}
+
+/* Navigation Links - Desktop */
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  
+}
+
+.nav-links li {
+  margin: 0 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bold;          /* Make the text bold */
+  font-size: 1.2em;           /* Make the text three times larger */
+  text-transform: uppercase;  /* Make the text uppercase */
+  
+}
+
+.nav-links li a:hover {
+  background-color: azure;
+  color: #0d3f79;
+  border-radius: 5px;
+}
+
+/* Hamburger Icon */
+.hamburger {
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
+  display: none;
+}
+
+/* Mobile View Styling */
+@media (max-width: 768px) {
+  /* Hide the horizontal navigation links */
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: 100%; /* Start just below the navbar */
+    left: 0;
+    right: 0;
+    background-color: #0d3f79;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+  }
+
+  /* Show links when the menu is open */
+  .nav-links.show {
+    max-height: 300px; /* Adjust this to fit the total height of your links */
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slide down into view */
+  }
+
+  /* Display the hamburger icon */
+  .hamburger {
+    display: block;
+  }
+
+  /* Adjust margin for nav links */
+  .nav-links li {
+    margin: 15px 0; /* Spacing between links */
+  }
+}
